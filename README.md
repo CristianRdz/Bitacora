@@ -8,7 +8,7 @@ INSERT INTO `peliculas`.`generos` (`nombre`) VALUES ('Comedia');
 INSERT INTO `peliculas`.`generos` (`nombre`) VALUES ('Romance');
 
 
-## Cuestiones importantes para la implementacion
+# Cuestiones importantes para la implementacion
 
 ## MultiReadHttpServletRequest.java
 Funciona como una instancia de request, es decir copia cada una de las request que son recibidas por el servidor
