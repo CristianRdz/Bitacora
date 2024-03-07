@@ -8,19 +8,19 @@ INSERT INTO `peliculas`.`generos` (`nombre`) VALUES ('Comedia');
 INSERT INTO `peliculas`.`generos` (`nombre`) VALUES ('Romance');
 
 
-##Cuestiones importantes para la implementacion
+## Cuestiones importantes para la implementacion
 
-#MultiReadHttpServletRequest.java
+## MultiReadHttpServletRequest.java
 Funciona como una instancia de request, es decir copia cada una de las request que son recibidas por el servidor
 
-#MultiReadHttpServletResponse.java
+## MultiReadHttpServletResponse.java
 Funciona como una instancia de response, es decir copia cada una de las response que son recibidas por el servidor
 
-#BitacoraFilter
+## BitacoraFilter
 Implementa las dos clases anteriores con un filtro por peticion el cual copia el contenido del body y de la response en json y algunos datos importantes mas como la ip
 para guardarlo en la base de datos, es decir cada peticion esta siendo interceptada para y almacenada.
 
-#Dependencia para poder guardar JSON en models
+## Dependencia para poder guardar JSON en models
 
 <dependency>
             <groupId>io.hypersistence</groupId>
@@ -28,7 +28,7 @@ para guardarlo en la base de datos, es decir cada peticion esta siendo intercept
             <version>3.7.3</version>
         </dependency>
 
-# Asi se declara una columna json en la base de datos 
+## Asi se declara una columna json en la base de datos 
 
 @Column(columnDefinition = "json")
     @Type(JsonType.class)
