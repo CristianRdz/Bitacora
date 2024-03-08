@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/bitacora")
+@CrossOrigin(origins = "http://localhost:5173")  // Especifica el origen permitido
 public class BitacoraController {
 
     @Autowired
