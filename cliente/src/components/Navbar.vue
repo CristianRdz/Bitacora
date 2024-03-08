@@ -2,9 +2,7 @@
   <div>
     <b-navbar type="dark" variant="dark">
       <div class="mb-2">
-        <b-avatar
-          src="https://indiehoy.com/wp-content/uploads/2020/12/shrek.jpg"
-        ></b-avatar>
+        <b-avatar src="https://indiehoy.com/wp-content/uploads/2020/12/shrek.jpg"></b-avatar>
       </div>
       <b-navbar-nav>
         <b-nav-item href="#">Home</b-nav-item>
@@ -23,39 +21,40 @@
         <b-button v-b-modal.modal-1>Bitacora de Cambios</b-button>
       </b-navbar-nav>
     </b-navbar>
-    
-  <b-modal id="modal-1" title="BootstrapVue">
-    <b-table striped hover :items="items"></b-table>
-  </b-modal>
+
+    <b-modal id="modal-1" title="Bitacora de cambios" size="lg" @shown="reloadTable">
+      <div style="max-height: 400px; overflow-y: auto;">
+        <b-table striped hover :items="items"></b-table>
+      </div>
+    </b-modal>
+
   </div>
 </template>
 
 <script>
-import {obtenerBitacoras} from '../services/BitacoraService';
-  export default {
-    data() {
-      return {
-        items: []
-      }
-    },
-    methods:{
-      async getData() {
+import { obtenerBitacoras } from '../services/BitacoraService';
+export default {
+  data() {
+    return {
+      items: []
+    }
+  },
+  methods: {
+    async getData() {
       try {
-        
         this.items = await obtenerBitacoras();
       } catch (error) {
         console.error(error);
-        alert(
-          "Ocurrió un error al obtener la bitacora chance no hay conexión a internet"
-        );
+        alert("Ocurrió un error al obtener la bitácora, verifica tu conexión a internet.");
       }
     },
-    },
-    async mounted() {
-        await this.getData();
-    },
+    async reloadTable() {
+      await this.getData();
+    }
+  },
+  async mounted() {
+    await this.getData();
   }
+}
 </script>
-
-<style scoped>
-</style>
+<style scoped></style>
